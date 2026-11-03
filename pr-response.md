@@ -8,7 +8,7 @@ I used AI to help create the PR description by summarizing the last few commits 
 **How I verified:** I used "change all occurances" to change the function from the services/watchlist_service.py file. Then I prompted AI to search for other occurances within the folder and it found two in routes/watchlist.py
 
 ## Comment 2 — Deduplication
-**What I did:** I copied how deduplication from add_to_collection() in services/collection_service.py handles it. I follow the same pattern and created an error to run if it fails. 
+**What I did:** I copied how deduplication from add_to_collection() in services/collection_service.py handles it. I follow the same pattern and created an error to run if it fails. So before creating a new entry, add_to_watchlist() queries WatchlistEntry for an existing row with the same user id and film id. If one exists, it raises a new error called AlreadyInWatchlistError. If it doesn't exist, it creates and commits the entry.  
 **How I verified:** Verified the similaries from the example. Also verified that the database contained only one row for that user and film. 
 
 ## Comment 3 — Missing test
