@@ -26,8 +26,8 @@ I used AI to help create the PR description by summarizing the last few commits 
 **Engagement with reviewer's point:** I acknowledge that this would make it harder to easily find something that a user may only know by title but if they forget and try adding it again. They would be notified anyways if they already have it on their watchlist. That was a recent bug fixed.z
 
 ## Comment 6 — Rebase
-**What conflicted:** My conflict was there was two .gitignore files. One on each branch
-**How I resolved it:** I reviewed the conflict and accepted the incoming changes from the main branch becaause it was more recent and had more to it. 
+**What conflicted:** main migrated film ID's from integers to UUID. My branch still had it has integer so models.py conflicted. 
+**How I resolved it:** I kept main's UUID changes to Film, changing film_id to a string datatype to match everything else. I updated all files that needed to update that change in the models.py, watchlist_service.py, and routes/watchlist/watchlist.py file. 
 **How I verified no conflict remains:** The branch was mergeable. 
 
 ## PR Description
